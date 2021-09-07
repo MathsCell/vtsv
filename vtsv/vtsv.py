@@ -190,7 +190,7 @@ def OnFind(evt):
         # create new findme struct
         findme["target"]=val
         findme["ktab"]=ktab
-        findme["wh"]=np.where((np.char.find(g.arr.astype(str), val) >= 0) & (g.arr != None))
+        findme["wh"]=np.where(vfind(g.arr, val) >= 0)
         if len(findme["wh"][0]) == 0:
             gui.sbar.SetStatusText("not found")
             return;
@@ -326,7 +326,10 @@ def f2nb(f):
             ktab -= 1
         if ktab >= 0:
             gui.nb.SetSelection(ktab)
-
+def vfind(a, s):
+    "Apply v.find(s) to all elements 'v' in 'a'. Return an array of the same shape as 'a'."
+    return np.array([[v.find(s) if v is not None else -1 for v in r] for r in a], dtype=int).reshape(a.shape)
+    
 def make_gui():
     "create GUI"
     global gui
