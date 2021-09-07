@@ -15,7 +15,7 @@ setup(
    long_description=long_description,
    author='Serguei Sokol',
    author_email='sokol@insa-toulouse.fr',
-   url='https://github.com/Mathematics-Cell/vtsv',
+   url='https://github.com/MathsCell/vtsv',
    packages=['vtsv'],
    package_data={
         'vtsv': ['version.txt', 'licence_en.txt', 'help/*', 'example/*'],
